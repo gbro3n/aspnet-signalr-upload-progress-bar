@@ -1,0 +1,129 @@
+﻿* {
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family: arial, sans-serif;
+    color: #333;
+    font-size: 0.8em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    
+    color: #666;
+}
+
+h1 {
+
+    font-size: 1.4em;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 10px;
+}
+
+div#content {
+
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+}
+
+div#tab-nav {
+
+    margin-top: 10px;
+}
+
+div#tab-nav ul li {
+
+    display: inline-block;
+}
+
+div#tab-nav ul li span {
+
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #e0e0e0;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: -5px;
+}
+
+div#tab-nav ul li span.active-tab {
+
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+div#work-area {
+
+    border: 1px solid #ccc;
+    min-height: 500px;
+    margin-top: 10px;
+}
+
+div#upload-viewport {
+ 
+    margin: 10px;
+}
+
+div#progressBarContainer {
+
+    display: none;
+    width: 400px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+div#progressBar {
+
+    display: block;
+    height: 30px;
+    background-color: green;
+    background: url('../Img/ProgressBarBg.png') repeat-x;
+    width: 0px;
+}
+
+iframe#uploadFormIframe {
+
+    width: 700px;
+    height: 90px;
+    margin-top: 10px;
+    border: none;
+    border: 1px solid #ccc;
+}
+
+div#status {
+
+    color: #666;
+    margin-top: 10px;
+}
+
+div#uploadFormContainer, div#waitMessageContainer {
+
+    display: block;
+    padding: 10px;
+    font-size: 0.8em;
+}
+
+div#uploadBtnContainer {
+
+    text-align: right;
+    margin-top: 10px;
+}
+
+button#uploadFileBtn {
+
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+input#uploadFile {
+
+    padding: 3px;
+}

@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/DefaultLayout.cshtml";
+    ViewBag.Title = "FWR Data Team Uploader";
+}
+
+
+<div id="tab-nav">
+    <ul>
+        <li><span id="tab-nav-upload" class="active-tab">Upload</span></li>
+    </ul>
+</div>
+
+<div id="work-area">
+    
+    <div id="upload-viewport">
+        
+        @{
+            Html.RenderAction("Upload", "Upload");
+        }
+
+    </div>
+    
+</div>
