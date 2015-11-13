@@ -1,7 +1,7 @@
 
 # ASP.NET File Uploader with SignalR Progress Bar and Extended Input Stream Processing
 
-*Note: This is a copy of an old and fairly blog post that I have had requests to reinstate the links and source code for. The .sln file has been updated for VS 2015. If you run into trouble with 404 error on upload of a file, check the HTTP handler config in web.config - HTTP handler configuration is different for IIS 10 vs older versions.*
+*Note: This is a copy of an old and fairly popular blog post that I have had requests to reinstate the links and source code for. The .sln file has been updated for VS 2015. If you run into trouble with 404 error on upload of a file, check the HTTP handler config in web.config - HTTP handler configuration is different for IIS 10 vs older versions.*
 
 ![alternate text](https://cdn.iocontent.com/api/v1.0/assets/p3rzfr3dgzy3eq6fcgbg2ejxqc/20151113-160132588/7v29/signalr-upload-progress-git-hub.png)
 
