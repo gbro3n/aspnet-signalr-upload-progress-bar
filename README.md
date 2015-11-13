@@ -1,9 +1,9 @@
 
 # ASP.NET File Uploader with SignalR Progress Bar and Extended Input Stream Processing
 
-*This is a copy of an old and fairly blog post that I have had requests to reinstate the links and source code for. The source code builds and the site runs, but the upload fails with a 404, not looked into why this is yet (If you figure it out please contribute your changes). Still uses MVC 3 and presumably an older version of SignalR.*
+*Note: This is a copy of an old and fairly blog post that I have had requests to reinstate the links and source code for. The .sln file has been updated for VS 2015. If you run into trouble with 404 error on upload of a file, check the HTTP handler config in web.config - HTTP handler configuration is different for IIS 10 vs older versions.*
 
-![alternate text](https://cdn.iocontent.com/api/v1.0/assets/p3rzfr3dgzy3eq6fcgbg2ejxqc/20151113-151435501/2xlo/signalr-upload-aspnet.png)
+![alternate text](https://cdn.iocontent.com/api/v1.0/assets/p3rzfr3dgzy3eq6fcgbg2ejxqc/20151113-160132588/7v29/signalr-upload-progress-git-hub.png)
 
 This post describes how to build robust file uploading functionality, with progress bar using ASP.NET MVC and SignalR.
 
@@ -16,7 +16,7 @@ The challenges that I needed to solve following the initial SignalR integration 
 
 File upload via an ASP.NET MVC action using HttpPostedFileBase was not suitable. Accessing some properties on the HttpContext.Request object, such as HttpContext.Request.Length, HttpContext.Request.Files, HttpContext.Request.InputStream causes ASP.NET to wait until the full HTTP request stream has been read in its entirety. In this case, that meant that I could not start pushing updates to the client from the server until the file had been uploaded, which defeated the point of having an upload progress bar.
 
-I was able to work around this by using&nbsp;HttpContext.Request.GetBufferlessInputStream() inside an HTTP handler. This allows me to begin reading from the http request body pretty much as soon as it starts uploading. This however left me with my next problem to solve.
+I was able to work around this by using `HttpContext.Request.GetBufferlessInputStream()` inside an HTTP handler. This allows me to begin reading from the http request body pretty much as soon as it starts uploading. This however left me with my next problem to solve.
 
 **Because none of the form data can be accessed during upload (this would cause ASP.NET to wait until all uploaded), no additional variables can be used at an early stage in the request**
 
