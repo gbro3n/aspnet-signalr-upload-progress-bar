@@ -1,0 +1,20 @@
+# ==================================================================
+# Syntax
+# ------
+# *.ext		- Ignore all with extension
+# bin/		- Ignore folder called bin, but not file called bin
+# bin/*		- Ignore all files (but not folders) under directory bin
+# bin/**	- Ignore all files (and folders) under directory bin
+# ==================================================================
+
+
+*.tss
+*.suo
+*.log
+*.csproj.user
+
+.vs/
+
+Application/AppSoftware.SignalRFileUploader/bin/
+
+Application/AppSoftware.SignalRFileUploader/obj/
