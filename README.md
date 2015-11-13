@@ -1,7 +1,7 @@
 
 # ASP.NET File Uploader with SignalR Progress Bar and Extended Input Stream Processing
 
-*This is a copy of an old and fairly blog post that I have had requests to reinstate the links for. The source code builds, but the upload fails with a 404, not looked into why this is yet. Still uses MVC 3 and presumably an older version of SignalR*
+*This is a copy of an old and fairly blog post that I have had requests to reinstate the links and source code for. The source code builds and the site runs, but the upload fails with a 404, not looked into why this is yet (If you figure it out please contribute your changes). Still uses MVC 3 and presumably an older version of SignalR.*
 
 ![alternate text](https://cdn.iocontent.com/api/v1.0/assets/p3rzfr3dgzy3eq6fcgbg2ejxqc/20151113-151435501/2xlo/signalr-upload-aspnet.png)
 
