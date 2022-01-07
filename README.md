@@ -3,7 +3,7 @@
 
 *Note: This is a copy of an old and fairly popular blog post that I have had requests to reinstate the links and source code for. The .sln file has been updated for VS 2015. If you run into trouble with 404 error on upload of a file, check the HTTP handler config in web.config - HTTP handler configuration is different for IIS 10 vs older versions.*
 
-Original blog post: https://journals.appsoftware.com/public/20/97/3819/programming-blog/development/asp.net-file-uploader-with-signalr-progress-bar-and-extended-input-stream-processing
+Original blog post: https://garethbrown.net/2013/01/08/asp-net-file-uploader-with-signalr-progress-bar-and-extended-input-stream-processing.html
 
 This post describes how to build robust file uploading functionality, with progress bar using ASP.NET MVC and SignalR.
 
