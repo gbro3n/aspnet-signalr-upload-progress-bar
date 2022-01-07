@@ -44,10 +44,10 @@ using System.Text;
 
 namespace AppSoftware.SignalRFileUploader.HttpRequestProcessing
 {
-    /// &lt;summary&gt;
+    /// <summary>
     /// Adapted from HttpMultipartContentTemplateParser in System.Web, provides processing
     /// for raw http request data
-    /// &lt;/summary&gt;
+    /// </summary>
     internal sealed class HttpMultipartContentTemplateParser
     {
         private readonly StreamIndexer m_data;
@@ -75,21 +75,21 @@ namespace AppSoftware.SignalRFileUploader.HttpRequestProcessing
 
         private bool AtEndOfData()
         {
-            return this.m_pos &gt;= this.m_length || this.m_lastBoundaryFound;
+            return this.m_pos >= this.m_length || this.m_lastBoundaryFound;
         }
 
         private bool GetNextLine()
         {
             int i = this.m_pos;
             this.m_lineStart = -1;
-            while (i &lt; this.m_length)
+            while (i < this.m_length)
             {
                 if (this.m_data[i] == 10)
                 {
                     this.m_lineStart = this.m_pos;
                     this.m_lineLength = i - this.m_pos;
                     this.m_pos = i + 1;
-                    if (this.m_lineLength &gt; 0 &amp;&amp; this.m_data[i - 1] == 13)
+                    if (this.m_lineLength > 0 &amp;&amp; this.m_data[i - 1] == 13)
                     {
                         this.m_lineLength--;
                         break;
@@ -106,20 +106,20 @@ namespace AppSoftware.SignalRFileUploader.HttpRequestProcessing
                     }
                 }
             }
-            return this.m_lineStart &gt;= 0;
+            return this.m_lineStart >= 0;
         }
 
         private string ExtractValueFromContentDispositionHeader(string l, int pos, string name)
         {
             string text = name + "=\"";
             int num = CultureInfo.InvariantCulture.CompareInfo.IndexOf(l, text, pos, CompareOptions.IgnoreCase);
-            if (num &lt; 0)
+            if (num < 0)
             {
                 return null;
             }
             num += text.Length;
             int num2 = l.IndexOf('"', num);
-            if (num2 &lt; 0)
+            if (num2 < 0)
             {
                 return null;
             }
@@ -145,7 +145,7 @@ namespace AppSoftware.SignalRFileUploader.HttpRequestProcessing
                 this.m_data.CopyBytes(this.m_data, this.m_lineStart, array, 0, this.m_lineLength); // Edited to remove CopyBytes dependancy
                 string @string = this.m_encoding.GetString(array);
                 int num = @string.IndexOf(':');
-                if (num &gt;= 0)
+                if (num >= 0)
                 {
                     string s = @string.Substring(0, num);
                     if (s.Equals("Content-Disposition", StringComparison.OrdinalIgnoreCase)) // Edited to remove StringUtil dependancy
@@ -171,7 +171,7 @@ namespace AppSoftware.SignalRFileUploader.HttpRequestProcessing
             {
                 return false;
             }
-            for (int i = 0; i &lt; num; i++)
+            for (int i = 0; i < num; i++)
             {
                 if (this.m_data[this.m_lineStart + i] != this.m_boundary[i])
                 {
@@ -276,10 +276,10 @@ namespace AppSoftware.SignalRFileUploader.HttpRequestProcessing
             int length = headerValue.Length;
             int length2 = attrName.Length;
             int i;
-            for (i = 1; i &lt; length; i += length2)
+            for (i = 1; i < length; i += length2)
             {
                 i = CultureInfo.InvariantCulture.CompareInfo.IndexOf(headerValue, attrName, i, CompareOptions.IgnoreCase);
-                if (i &lt; 0 || i + length2 &gt;= length)
+                if (i < 0 || i + length2 >= length)
                 {
                     break;
                 }
@@ -290,37 +290,37 @@ namespace AppSoftware.SignalRFileUploader.HttpRequestProcessing
                     break;
                 }
             }
-            if (i &lt; 0 || i &gt;= length)
+            if (i < 0 || i >= length)
             {
                 return null;
             }
             i += length2;
-            while (i &lt; length &amp;&amp; char.IsWhiteSpace(headerValue[i]))
+            while (i < length &amp;&amp; char.IsWhiteSpace(headerValue[i]))
             {
                 i++;
             }
-            if (i &gt;= length || headerValue[i] != '=')
+            if (i >= length || headerValue[i] != '=')
             {
                 return null;
             }
             i++;
-            while (i &lt; length &amp;&amp; char.IsWhiteSpace(headerValue[i]))
+            while (i < length &amp;&amp; char.IsWhiteSpace(headerValue[i]))
             {
                 i++;
             }
-            if (i &gt;= length)
+            if (i >= length)
             {
                 return null;
             }
             string result;
-            if (i &lt; length &amp;&amp; headerValue[i] == '"')
+            if (i < length &amp;&amp; headerValue[i] == '"')
             {
                 if (i == length - 1)
                 {
                     return null;
                 }
                 int num = headerValue.IndexOf('"', i + 1);
-                if (num &lt; 0 || num == i + 1)
+                if (num < 0 || num == i + 1)
                 {
                     return null;
                 }
@@ -329,7 +329,7 @@ namespace AppSoftware.SignalRFileUploader.HttpRequestProcessing
             else
             {
                 int num = i;
-                while (num &lt; length &amp;&amp; headerValue[num] != ' ' &amp;&amp; headerValue[num] != ',')
+                while (num < length &amp;&amp; headerValue[num] != ' ' &amp;&amp; headerValue[num] != ',')
                 {
                     num++;
                 }
@@ -383,13 +383,13 @@ namespace AppSoftware.SignalRFileUploader.HttpRequestProcessing
                 // If the byte at index is already loaded into current chunk, return
                 // directly from byte[], else load the chunk from stream first
 
-                if(!(index &gt;= m_chunkStartPos &amp;&amp; index &lt;= m_chunkEndPos) || m_chunk == null)
+                if(!(index >= m_chunkStartPos &amp;&amp; index <= m_chunkEndPos) || m_chunk == null)
                 {
                     int chunkSize = 8 * 1024;
 
                     long distanceToStreamEnd = (m_stream.Length - index);
 
-                    if (chunkSize &gt; distanceToStreamEnd)
+                    if (chunkSize > distanceToStreamEnd)
                     {
                         chunkSize = (int) distanceToStreamEnd;
                     }
@@ -527,7 +527,7 @@ namespace AppSoftware.SignalRFileUploader.HttpRequestProcessing
 
                 // Only read as far as we need
 
-                while (bytesRemaining &gt; 0)
+                while (bytesRemaining > 0)
                 {
                     length = m_streamIndexer.Stream.Read(buffer, 0, readSize);
 
@@ -535,7 +535,7 @@ namespace AppSoftware.SignalRFileUploader.HttpRequestProcessing
 
                     bytesRemaining -= length;
 
-                     if (readSize &gt; bytesRemaining)
+                     if (readSize > bytesRemaining)
                      {
                          readSize = bytesRemaining;
                      }
@@ -545,7 +545,7 @@ namespace AppSoftware.SignalRFileUploader.HttpRequestProcessing
 
         internal string GetAsString(Encoding encoding)
         {
-            if (this.m_length &gt; 0)
+            if (this.m_length > 0)
             {
                 return encoding.GetString(this.GetAsBytes(encoding)); // Edited to remove HttpRawUploadedContent dependancy, use plain byte[]
             }
